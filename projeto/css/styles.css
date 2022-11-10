@@ -1,123 +1,208 @@
-/* Geral */
-:root {
-    --main-color: #d92123;
-    --primary-text-color: #fff;
-    --secondary-text-color: #191919;
-    --secondary-color: #868686;
-    --tertiary-color: #eff3f4;
+/* Geral: Coloca todos os elementos que não tem classe e id e padroniza os elementos */
+:root { /* declarar na raíz do documento as variáveis do CSS, colocou variáveis  para as cores porque usa muito e quando precisa alterar já muda todo o projeto */
+    --main-color: #d92123; /* cor principal do site */
+    --primary-text-color: #fff; /* cor principal de textos */
+    --secondary-text-color: #191919; /* cor secundária de textos */
+    --secondary-color: #868686; /* cor secundária do site */
+    --tertiary-color: #eff3f4; /* cor terciária do site */
 }
-
+/* coloca o * para selecionar todos os elementos, títulos, div, parágrafos... retira o estilo padrão do navegador para eliminar as diferenças entreos navegadores*/
 * {
     font-family: "Lato";
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+    padding: 0; /* retira o espaçamento interno padrão do navegador */
+    margin: 0; /* retira o espaçamento externo padrão do navegador */
+    box-sizing: border-box; /*padroniza alguns elementos que passam da largura máxima do elemento pai por algum motivo*/
 }
 
-a {
-    text-decoration: none;
+a { /* ex.: essa tag "a" está dentro do elemento pai "nav" do Cabeçalho e Banner*/
+    text-decoration: none; /* remove o underline dos links*/
 }
 
 img {
-    width: 100%;
+    width: 100%; /* para respeitar o elemento pai*/
 }
 
-input[type="submit"] {
-    cursor: pointer;
+input[type="submit"] { /* seletor para o formulário e já escolhi o atributo "type" e estiliza apenas o botão "submit" */
+    cursor: pointer; /* para que o cursos mude para "mãozinha" e mostre o evento de clicar*/
 }
 
-i {
-    background-color: var(--main-color);
-    color: var(--primary-text-color);
-    font-size: 2.5rem;
-    padding: 2rem;
+i { /* declara os ícones */
+    background-color: var(--main-color); /* todos os fundos dos ícones terão essa cor*/
+    color: var(--primary-text-color); /* o ícone terá sempre a mesma cor*/
+    font-size: 2.5rem; /* são considerados texto e posso definir o tamanho dele com a propriedade de "tamanho da fonte" Uso a unidade de medida "rem" porque ele se referente ao elemento root do HTML, que é 16px, então nesse caso o tamanho do ícone é 2,5X maior que o elemento do HTML*/
+    padding: 2rem; /*trabalha entre a borda da cor de fundo até o elemento*/
 }
 
-/*Cabeçalho e Banner */
-#header {
-    min-height: 90vh;
-    background-image: url("../img/main_banner4.png");
-    background-size: cover;
-    background-position: center;
-    color: var(--primary-text-color);
-    margin-bottom: 2rem;
-    position: relative;
+/*Cabeçalho geral, barra de navegação e banner */
+#header { /* cabeçalho geral */
+    min-height: 90vh; /* Uso a unidade de medida vh, referente a altura mínima da tela porque o banner terá 90% da altura da tela*/
+    background-image: url("../img/main_banner4.png"); /* colocar imagem de fundo no cabeçalho, daí coloco "url (../img/imagem.extensão"), uso os dois pontos sequenciais porque preciso sair da pasta CSS e acessar a pasta img, tenho acesso a todas as imagens e posso escolher uma */
+    background-size: cover; /* otimiza o tamanho da imagem para a área que tenho à disposição, exibindo o máximo possível da imagem e retira a repetição da imagem*/
+    background-position: center; /* exibe a imagem centralizada baseada a imagem que tenho como fonte */
+    color: var(--primary-text-color); /* definir as cores dos textos que ficam no cabeçalho geral */
+    margin-bottom: 2rem; /* trabalho os espaçamentos inferiores, pela margem inferior, assim afasto os próximos itens que serão colocados, tenho um respiro e defino onde começa e termina uma seção  */
+    position: relative; /* porque ele é meu elemento de referência e os elementos absolutos serão baseados nele. Ex.: o quadrado vermelho que fica no cabeçalho e que ao ser absoluto consigo definir o lugar dele em relação ao título */
 }
 
 #inner-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* ativa o recurso flex box que movimenta os elementos  */
+    justify-content: space-between; /* coloca os elementos espçado entre si e acaba colocando cada um em uma extremidade */
+    align-items: center; /* coloca o centro para os elementos desse container   */
 }
 
-#brand {
-    background-color: var(--main-color);
-    padding: 1rem;
+#brand { /* marca: Pearson Hardman e vemos que está dentro do inner-header no HTML*/
+    background-color: var(--main-color); /* altera a cor de fundo do título */
+    padding: 1rem; /* respiro interno entre o conteúdo e a borda da página  */
 }
+
+/* Barra de navegação */
 
 #navbar {
-    display: flex;
-    gap: 3rem;
-    text-transform: uppercase;
-    margin-right: 2rem;
+    display: flex; /* para controlar os espaçamentos entre os itens da barra de navegação */
+    gap: 3rem; /* espaçar igualmente */
+    text-transform: uppercase; /* itens em caixa alta*/
+    margin-right: 2rem; /* assim o último  item tem um espaço até chegar na borda*/
 }
 
-#navbar a {
+#navbar a { /* configura apenas o link que está do id da barra de navegação */
     color: var(--primary-text-color);
-    font-weight: bold;
-    padding: 1rem;
+    font-weight: bold; 
+    padding: 1rem; /* gera espaçamento interno entre os elementos da barra de navegação */
 }
 
-.banner.active {
-    opacity: 1;
+/* Banner */
+
+.banner.active { /* banner presente*/
+    opacity: 1; /* quando ativo mostrará 100% da cor da imagem  */
 }
 
-.banner {
-    max-width: 50%;
+.banner { /* dizeres que ficam abaixo da barra de navegação */
+    max-width: 50%; /* a largura máximo, daí não passa da metade da tela. O texto ficará reduzido e exibido apenas na lateral esquerda */
     padding: 4rem;
-    opacity: 0;
-    position: absolute;
-    transition: 0.6s;
+    opacity: 0; /* o banner irá sumir, tira toda a cor da imagem e será essenvial quando aplicar o JavaScript */
+    position: absolute; /* para os banners ficarem no mesmo local e irão aparecer a medida que o banner estiver ativo  */
+    transition: 0.6s; /* a transição entre os banners levará 0.6 segunos */
 }
 
 .banner h2 {
-    font-size: 4rem;
-    margin-bottom: 1.2rem;
-    position: relative;
-    z-index: 2;
+    font-size: 4rem; /* aumenta a fonte, baseada no tamanho da fonte geral do navegador */
+    margin-bottom: 1.2rem; /* trabalho os espaçamentos inferiores, pela margem inferior, no título do banner. Assim afasto os próximos itens que serão colocados, tenho um respiro e defino onde começa e termina uma seção */
+    position: relative; /* preciso definir a posição para que o z-index funcione, porque o h2 é meu elemento de referência e os elementos absolutos, por exemplo o square, serão baseados nele */
+    z-index: 2; /* define que o texto fica acima do quadrado "square" do CSS */
 }
 
 .banner p {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* coloca a fote um pouco maior do que o padrão do navegador */
 }
 
-.square {
-    display: block;
-    width: 150px;
-    height: 150px;
+.square { /* quadrado vermelho que tem no banner */
+    display: block; /* No HTML defindo quadrado como "span", que é inline, então preciso colocar o display block e assume como se fosse um parágrafo ou h1, mesmo sendo apenas um quadrado apenas decorativo */
+    width: 150px; /* coloca a largura para formar o quadrado */
+    height: 150px; /* coloca a altura para formar o quadrado */
     background-color: var(--main-color);
-    position: absolute;
-    z-index: 1;
-    left: 20px;
-    top: 40px;
+    position: absolute; /* faz o quadrado ficar no texto */
+    z-index: 1; /* define que o quadrado fica atrás do texto */
+    left: 20px; /* reposiciona o quadrado mais para esquerda */
+    top: 40px; /* reposiciona o quadrado para ficar um pouco mais acima, próximo à brand Pearson Hardman  */
 }
 
-.dots {
-    display: flex;
+.dots { /* É o elemento pai. A estrurua dele lembra a estrutura do square */
+    display: flex; /* para controlar os espaçamentos entre os quadradinhos */
     gap: 2rem;
-    position: absolute;
-    bottom: 3rem;
-    left: 3rem;
+    position: absolute; /* para ficar os quadrados em um local */
+    bottom: 3rem; /* posiciona o elemento absoluto embaixo  */
+    left: 3rem; /* posiciona o elemento absoluto à esquerda */
 }
 
-.dot {
-    width: 20px;
-    height: 20px;
+.dot { /* cada quadradinho */
+    width: 20px; /* define a largura do quadrado*/
+    height: 20px; /* define a altura do quadrado*/
     background-color: var(--secondary-text-color);
 }
 
-.dot.active {
+.dot.active { /* quando estiver ativo */
     background-color: var(--main-color);
 }
 
 /* Áreas de atuação */
+.text-image-section { /* essa seção vai organizr várias seções que aparecerão */
+    display: flex; /* deixa imagem ao lado do texto */
+    flex-wrap: wrap; /* se a largura da imagem exceder do limite da tela, uma div vai para baixo da outra */
+    gap: 2rem; /* afastar um item do outro */
+}
+
+.text-container {
+    flex: 2 1 0; /* proporcionalmente o texto do container irá ser maior 2x do que os outros; os números 2, 1 e 0 configuram respectivamente o quanto o elemento é  maior, qual a proporção do elemento em relação aos outros; o quanto o elemento encolhe quando a tela diminui, na proproção 1; e 0 de largura base, mas não precisamos porque já tem os conteúdos dos elementos */
+    display: flex; /* para controlar os espaçamentos entre os textos e fica um do lado do outro, que o padrão é em linha*/
+    gap: 2rem; /*  */
+    flex-direction: column; /* precisa mudar o padrão do display flex para um item ficar abaixo do outro */
+    justify-content: center; /* centralizar os itens na vertical */
+    text-align: right; /* para os textos ficarem ao lado da imagem*/
+}
+
+.section-subtitle {
+    text-transform: uppercase; /* letras maiúsculas */
+    font-weight: bold; /* negrito */
+    color: var(--main-color);
+}
+
+.section-title {
+    color: var(--secondary-text-color) ;
+    font-size: 2rem; /* deixar o dobro do que  é o padrão*/
+}
+
+.btn { /* transforamr o link em botão*/
+    padding: 1.2rem 1.8rem; /* quero espaçamento em cima e embaixo pouco menor do que as laterais e dá o aspecto do retângulo */
+    text-transform: uppercase; /* letras maiusculas */
+    font-size: 1.4rem; /* deixar um pouco maior do que  é o padrão*/
+    font-weight: bold; /* negrito */
+    color: var(--primary-text-color);
+    background-color: var(--main-color);
+    align-self: end; /* para alinhar ao fim do conteúdo */
+}
+
+.image-container { 
+    flex: 1 1 300px; /* será metade do tamanho do texto de "text-container" e tem 300px de base, porque o flex tenta igualar os itens ou deixa o item que tem mais conteúdo maior do que o que tem menos conteúdo */
+    position: relative; /* porque meu ícone dentro da imagem vai ter  a posição de absoluto */
+}
+
+.image-container i {
+    position: absolute; /*  */
+}
+
+#other-services {
+    width: 100%; /* a largura é 100% para entender que o item está no display flex, por causa da regra "expertise-areas" do HTML e também no CSS quando chamamos a regra "text-image-section que está com o display flex. daí, fica em layout colunar e ocupa 100% da largura a coluna e não tenta dividir espaços com os outros elementos */ 
+    display: flex; /* faz fica um ao lado do outro */
+    gap: 2rem; /*afasta um do outro*/
+    padding: 2rem; /*espaço lateral*/
+}
+
+.service {
+    position: relative; /* será a referência para os ícones que serão chamados no ".service i" com posição absoluta no CSS */
+}
+
+.service i {
+    position: absolute;
+    left: 0; /* para ancorar o ícone à esquerda, juntamente com o "top: 0*/
+    /* top: 0; */
+    padding: 1rem; /* porque o ícone nessa etapa não é tão grande, daí reduz em relação ao ícone padrão. Une ao font-size */
+    font-size: 1.5rem;
+}
+
+.service-info {
+    background-color: var(--tertiary-color);
+    padding: 2rem 1.4rem; /* para espaçamento interno entre o texto e o container cinza de texto */
+    min-height: 250px; /* define altura mínima porque independente do tamanho do texto os containers cinzas de texto sempre terão o mesmo tamanho */
+    margin-top: -3rem; /* porque quero que o container entre um pouco na imagem */
+    z-index: 2; /* junto com "position relative" para o container ficar na frente da imagem */
+    position: relative;
+}
+
+.service h4 { /*título da área de serviço*/
+    font-size: 1.8rem; /* aumenta apenas o tamanho do título*/
+    margin-bottom: 1rem; /* afastar o título do parágrafo inferior para não ficar tão próximo */
+    text-transform: uppercase; /* deixa o título em letra maíuscula*/
+}
+
+/* Sobre nós: onde tem os dados da empresa */
+
