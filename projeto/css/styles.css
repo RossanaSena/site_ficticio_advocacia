@@ -213,19 +213,19 @@ i { /* declara os ícones */
     gap: 2rem;
 }
 
-/* #about-text { */
-    /* background-image: url(../img/pattern.png); */
-    /* background-size: cover; */
-    /* background-position: center; */
-    /* color: var(--primary-text-color); */
-    /* flex: 1 1 0; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* gap: 2rem; */
-    /* padding: 4rem 3rem; */
-/* } */
+#about-text {
+    background-image: url(../img/pattern.png);
+    background-size: cover;
+    background-position: center;
+    color: var(--primary-text-color);
+    flex: 1 1 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding: 4rem 3rem;
+}
 
-/*.about-text .section-subtitle, 
+.about-text .section-subtitle, 
 .about-text .section-title {
     color: var(--primary-text-color);
-/* } */
+}
