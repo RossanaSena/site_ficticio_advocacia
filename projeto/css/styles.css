@@ -6,8 +6,8 @@
     --secondary-color: #868686; /* cor secundária do site */
     --tertiary-color: #eff3f4; /* cor terciária do site */
 }
-/* coloca o * para selecionar todos os elementos, títulos, div, parágrafos... retira o estilo padrão do navegador para eliminar as diferenças entreos navegadores*/
-* {
+
+* { /* coloca o * para selecionar todos os elementos, títulos, div, parágrafos... retira o estilo padrão do navegador para eliminar as diferenças entreos navegadores*/
     font-family: "Lato";
     padding: 0; /* retira o espaçamento interno padrão do navegador */
     margin: 0; /* retira o espaçamento externo padrão do navegador */
@@ -45,7 +45,7 @@ i { /* declara os ícones */
 }
 
 #inner-header {
-    display: flex; /* ativa o recurso flex box que movimenta os elementos  */
+    display: flex; /* ativa o recurso flex box que movimenta os elementos de forma mais simples */
     justify-content: space-between; /* coloca os elementos espçado entre si e acaba colocando cada um em uma extremidade */
     align-items: center; /* coloca o centro para os elementos desse container   */
 }
@@ -55,24 +55,19 @@ i { /* declara os ícones */
     padding: 1rem; /* respiro interno entre o conteúdo e a borda da página  */
 }
 
-/* Barra de navegação */
-
-#navbar {
+#navbar { /* Barra de navegação */
     display: flex; /* para controlar os espaçamentos entre os itens da barra de navegação */
-    gap: 3rem; /* espaçar igualmente */
+    gap: 4rem; /* espaçar igualmente */
     text-transform: uppercase; /* itens em caixa alta*/
     margin-right: 2rem; /* assim o último  item tem um espaço até chegar na borda*/
 }
 
-#navbar a { /* configura apenas o link que está do id da barra de navegação */
+#navbar a { /* configura apenas o link que está do id da barra de navegação por isso sou específica e coloco #navbar a */
     color: var(--primary-text-color);
     font-weight: bold; 
-    padding: 1rem; /* gera espaçamento interno entre os elementos da barra de navegação */
 }
 
-/* Banner */
-
-.banner.active { /* banner presente*/
+.banner.active { /* Banner *//* banner presente*/
     opacity: 1; /* quando ativo mostrará 100% da cor da imagem  */
 }
 
@@ -81,7 +76,7 @@ i { /* declara os ícones */
     padding: 4rem;
     opacity: 0; /* o banner irá sumir, tira toda a cor da imagem e será essenvial quando aplicar o JavaScript */
     position: absolute; /* para os banners ficarem no mesmo local e irão aparecer a medida que o banner estiver ativo  */
-    transition: 0.6s; /* a transição entre os banners levará 0.6 segunos */
+    transition: .6s; /* a transição entre os banners levará 0.6 segunos */
 }
 
 .banner h2 {
@@ -134,7 +129,7 @@ i { /* declara os ícones */
 .text-container {
     flex: 2 1 0; /* proporcionalmente o texto do container irá ser maior 2x do que os outros; os números 2, 1 e 0 configuram respectivamente o quanto o elemento é  maior, qual a proporção do elemento em relação aos outros; o quanto o elemento encolhe quando a tela diminui, na proproção 1; e 0 de largura base, mas não precisamos porque já tem os conteúdos dos elementos */
     display: flex; /* para controlar os espaçamentos entre os textos e fica um do lado do outro, que o padrão é em linha*/
-    gap: 2rem; /*  */
+    gap: 2rem; /* Espaço entre os elementos */
     flex-direction: column; /* precisa mudar o padrão do display flex para um item ficar abaixo do outro */
     justify-content: center; /* centralizar os itens na vertical */
     text-align: right; /* para os textos ficarem ao lado da imagem*/
@@ -148,7 +143,7 @@ i { /* declara os ícones */
 
 .section-title {
     color: var(--secondary-text-color) ;
-    font-size: 2rem; /* deixar o dobro do que  é o padrão*/
+    font-size: 2rem; /* deixar o dobro do que é o padrão*/
 }
 
 .btn { /* transforamr o link em botão*/
@@ -156,8 +151,8 @@ i { /* declara os ícones */
     text-transform: uppercase; /* letras maiusculas */
     font-size: 1.4rem; /* deixar um pouco maior do que  é o padrão*/
     font-weight: bold; /* negrito */
-    color: var(--primary-text-color);
     background-color: var(--main-color);
+    color: var(--primary-text-color);
     align-self: end; /* para alinhar ao fim do conteúdo */
 }
 
@@ -167,11 +162,11 @@ i { /* declara os ícones */
 }
 
 .image-container i {
-    position: absolute; /*  */
+    position: absolute; /* a  imagem é a referência para o ícone, por isso o ícone é abslute e a imagem ficou realtive  */
 }
 
 #other-services {
-    width: 100%; /* a largura é 100% para entender que o item está no display flex, por causa da regra "expertise-areas" do HTML e também no CSS quando chamamos a regra "text-image-section que está com o display flex. daí, fica em layout colunar e ocupa 100% da largura a coluna e não tenta dividir espaços com os outros elementos */ 
+    width: 100%; /* a largura é 100% para a página entender que o item está no display flex, por causa da regra "expertise-areas" do HTML e também no CSS quando chamamos a regra "text-image-section que está com o display flex. daí, fica em layout colunar e ocupa 100% da largura a coluna e não tenta dividir espaços com os outros elementos */ 
     display: flex; /* faz fica um ao lado do outro */
     gap: 2rem; /*afasta um do outro*/
     padding: 2rem; /*espaço lateral*/
@@ -184,7 +179,7 @@ i { /* declara os ícones */
 .service i {
     position: absolute;
     left: 0; /* para ancorar o ícone à esquerda, juntamente com o "top: 0*/
-    /* top: 0; */
+    top: 0;
     padding: 1rem; /* porque o ícone nessa etapa não é tão grande, daí reduz em relação ao ícone padrão. Une ao font-size */
     font-size: 1.5rem;
 }
@@ -205,7 +200,6 @@ i { /* declara os ícones */
 }
 
 /* Sobre nós: onde tem os dados da empresa */
-
 #about {
     display: flex;
     flex-wrap: wrap;
@@ -219,13 +213,72 @@ i { /* declara os ícones */
     background-position: center;
     color: var(--primary-text-color);
     flex: 1 1 0;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 2rem;
     padding: 4rem 3rem;
 }
 
-.about-text .section-subtitle, 
-.about-text .section-title {
+#about-text .section-subtitle, 
+#about-text .section-title {
     color: var(--primary-text-color);
+}
+
+#about-text i {
+    background-color: transparent;
+}
+
+.about-description {
+    display: flex;
+    align-items: center;
+}
+
+.about-description h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+#about-data {
+    flex: 1 1 0;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+
+#about-data .data {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin-top: -1px;
+    margin-left: -1px;
+}
+
+#about-data .data:first-child {
+    border-bottom: 1px solid var(--secondary-text-color);
+    border-right: 1px solid var(--secondary-text-color);
+}
+
+#about-data .data:last-child {
+    border-top: 1px solid var(--secondary-text-color);
+    border-left: 1px solid var(--secondary-text-color);
+}
+
+#about-data .data i {
+    background-color: transparent;
+    color: var(--main-color);
+    font-size: 4rem;
+    padding: 0;
+}
+
+.data .number {
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+.data .text {
+    text-transform: uppercase;
 }
