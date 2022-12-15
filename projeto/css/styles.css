@@ -5,6 +5,7 @@
     --secondary-text-color: #191919; /* cor secundária de textos */
     --secondary-color: #868686; /* cor secundária do site */
     --tertiary-color: #eff3f4; /* cor terciária do site */
+    --secundary-bg-color: #5c1011
 }
 
 * { /* coloca o * para selecionar todos os elementos, títulos, div, parágrafos... retira o estilo padrão do navegador para eliminar as diferenças entreos navegadores*/
@@ -378,7 +379,7 @@ i { /* declara os ícones */
     color: var(--primary-text-color);
 }
 
-#contact-informarion i {
+#contact-information i {
     position: absolute;
     top: 0;
     left: 0;
@@ -398,7 +399,7 @@ i { /* declara os ícones */
 }
 
 #contact-information input,
-#contact-information textarea, {
+#contact-information textarea {
     flex: .5rem;
     padding: 1rem;
     border: none;
@@ -414,4 +415,89 @@ i { /* declara os ícones */
     background-color: var(--primary-text-color);
     color: var(--main-color);
     transition: .4s;
+}
+
+/* Rodapé */
+#footer {
+    color: var(--primary-text-color);
+    background-color: var(--secundary-bg-color);
+    display: flex;
+    justify-content: space-around;
+    padding: 3rem 3rem 5rem;
+}
+
+#footer i {
+    font-size: 1rem;
+    padding: .3rem;
+}
+
+#footer a {
+    color: var(--primary-text-color);
+}
+
+.contact-info,
+.links-container {
+    width: 20%;
+}
+
+.footer-brand {
+    margin-bottom: 2rem;
+}
+
+.footer-brand h2 {
+    background-color: var(--main-color);
+    margin-bottom: .5rem;
+    padding: 1rem;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+}
+
+.contact-info p i {
+    background-color: transparent;
+    padding: 0;
+    color: var(--main-color);
+}
+
+.social-networks p {
+    margin-bottom: 1rem;
+}
+
+.networks {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+#footer .networks i {
+    padding: 1rem;
+}
+
+.links-container h4 {
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.links-container nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.links-container nav a {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.phone-number {
+    display: flex;
+    border: 1px solid var(--main-color);
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.phone-info {
+    color: var(--secondary-color);
 }
