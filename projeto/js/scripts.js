@@ -12,6 +12,21 @@ console.log(allLinks);
 // Funções
 function smoothscrool(e) {
     e.preventDefault();
+
+    const href = this.getAttribute("href");
+    const offsetTop = document.querySelector(href).offsetTop;
+
+    scroll({
+        top: offsetTop,
+        behavior: "smooth",
+    })
+
+    setTimeout(() => {
+
+        if(menu.classList.contains("menu-active")) {
+            menu.classList.remove("menu-active");
+        }
+    }, 500);
 }
 
 // Eventos
