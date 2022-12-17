@@ -7,7 +7,9 @@ const desktopLinks = document.querySelectorAll("#navbar a");
 const mobileLinks = document.querySelectorAll("#mobile-navbar a");
 const allLinks = [...desktopLinks, ...mobileLinks];
 
-console.log(allLinks);
+const slides = document.querySelectorAll(".banner");
+const dots = document.querySelectorAll(".dot");
+let slideIndex = 0; 
 
 // Funções
 function smoothscrool(e) {
@@ -22,11 +24,28 @@ function smoothscrool(e) {
     })
 
     setTimeout(() => {
-
-        if(menu.classList.contains("menu-active")) {
+        if (menu.classList.contains("menu-active")) {
             menu.classList.remove("menu-active");
         }
     }, 500);
+}
+
+function showSlide () {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+        dots[i].classList.remove("active");
+    }
+    
+    slideIndex++
+
+    if(slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+
+    slides[slideIndex - 1].classList.add("active");
+    dots[slideIndex - 1].classList.add("active");
+
+    setTimeout(showSlide, 4000);
 }
 
 // Eventos
@@ -39,3 +58,6 @@ Array.from([menuBtn, closeMenuBtn]).forEach((btn) => {
 Array.from(allLinks).forEach((link) => {
     link.addEventListener("click", smoothscrool);
 })
+
+// Inicialização
+showSlide();
