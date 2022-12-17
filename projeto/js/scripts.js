@@ -49,13 +49,13 @@ function showSlide () {
 }
 
 // Eventos
-Array.from([menuBtn, closeMenuBtn]).forEach((btn) => {
+[menuBtn, closeMenuBtn].forEach((btn) => {
     btn.addEventListener("click", (e) => {
         menu.classList.toggle("menu-active");
     });
 });
 
-Array.from(allLinks).forEach((link) => {
+allLinks.forEach((link) => {
     link.addEventListener("click", smoothscrool);
 })
 
